@@ -37,7 +37,7 @@
         /* Tighter spacing for Key Skills section (Screen View) */
         .skill-group {
             line-height: 1.3;
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.1rem; /* Very tight spacing on screen */
         }
         .skill-group strong {
             /* Use inline-block for screen view to allow wrapping but keep it tight */
@@ -71,18 +71,8 @@
             .text-xs {
                 font-size: 0.70rem;
             }
-
-            /* --- ALIGNMENT FIX: Force Key Skills into 2 stable columns --- */
-            .skills-grid-print {
-                display: flex;
-                flex-wrap: wrap;
-            }
-            .skills-grid-print > div {
-                width: 50% !important; 
-                padding-right: 15px;
-            }
             
-            /* --- SKILLS SPACING FIX FOR PRINT (Final, aggressive tightening) --- */
+            /* --- SKILLS SPACING FIX FOR PRINT (Single column is inherently stable) --- */
             .skill-group {
                 line-height: 1.1 !important; /* Extremely tight line height */
                 margin-bottom: 0.05rem !important; /* Minimal vertical gap */
@@ -136,29 +126,28 @@
             </p>
         </section>
 
-        <!-- KEY SKILLS & TECHNICAL PROFICIENCIES - FINAL TIGHTENING FOR ALIGNMENT -->
+        <!-- KEY SKILLS & TECHNICAL PROFICIENCIES - NOW A SINGLE COLUMN BLOCK LIST -->
         <section class="mb-4">
             <h2 class="section-title text-xl uppercase">Key Skills & Technical Proficiencies</h2>
             <div class="text-sm text-gray-700">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 skills-grid-print">
-                    <div class="skill-group">
-                        <p><strong style="color: var(--primary-blue);">Cloud Platforms & SaaS:</strong> Azure (IaaS, PaaS), AWS (EC2, S3), Microsoft 365, Entra ID, Intune</p>
-                    </div>
-                    <div class="skill-group">
-                        <p><strong style="color: var(--primary-blue);">DevOps & Automation:</strong> Git, Docker, Terraform, Ansible, Jenkins, Bash, PowerShell</p>
-                    </div>
-                    <div class="skill-group">
-                        <p><strong style="color: var(--primary-blue);">System Administration:</strong> Windows Server (2012-2025), Linux, AD, DNS, DHCP, GPO, SAN, NAS</p>
-                    </div>
-                    <div class="skill-group">
-                        <p><strong style="color: var(--primary-blue);">Virtualization:</strong> VMware, Hyper-V, Proxmox</p>
-                    </div>
-                    <div class="skill-group">
-                        <p><strong style="color: var(--primary-blue);">Networking:</strong> External DNS, VPN, Router, Switches, Firewall, LAN/WAN</p>
-                    </div>
-                    <div class="skill-group">
-                        <p><strong style="color: var(--primary-blue);">Monitoring & Security:</strong> Prometheus, Grafana, Zabbix, LogicMonitor, Mimecast, CrowdStrike, SentinelOne, Airlock, Vulnerability Remediation, Penetration Testing (Nessus)</p>
-                    </div>
+                <!-- Removed grid, now using simple divs for stable, vertical stacking -->
+                <div class="skill-group">
+                    <p><strong style="color: var(--primary-blue);">Cloud Platforms & SaaS:</strong> Azure (IaaS, PaaS), AWS (EC2, S3), Microsoft 365, Entra ID, Intune</p>
+                </div>
+                <div class="skill-group">
+                    <p><strong style="color: var(--primary-blue);">DevOps & Automation:</strong> Git, Docker, Terraform, Ansible, Jenkins, Bash, PowerShell</p>
+                </div>
+                <div class="skill-group">
+                    <p><strong style="color: var(--primary-blue);">System Administration:</strong> Windows Server (2012-2025), Linux, AD, DNS, DHCP, GPO, SAN, NAS</p>
+                </div>
+                <div class="skill-group">
+                    <p><strong style="color: var(--primary-blue);">Virtualization:</strong> VMware, Hyper-V, Proxmox</p>
+                </div>
+                <div class="skill-group">
+                    <p><strong style="color: var(--primary-blue);">Networking:</strong> External DNS, VPN, Router, Switches, Firewall, LAN/WAN</p>
+                </div>
+                <div class="skill-group">
+                    <p><strong style="color: var(--primary-blue);">Monitoring & Security:</strong> Prometheus, Grafana, Zabbix, LogicMonitor, Mimecast, CrowdStrike, SentinelOne, Airlock, Vulnerability Remediation, Penetration Testing (Nessus)</p>
                 </div>
             </div>
         </section>
