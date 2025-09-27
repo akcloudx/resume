@@ -44,6 +44,12 @@
             display: inline-block;
             margin-right: 5px;
         }
+        
+        /* Class applied to job sections to prevent bad page breaks */
+        .page-break-avoid {
+             page-break-inside: avoid;
+             break-inside: avoid;
+        }
 
 
         /* --- PRINT OPTIMIZATION: Condensing and Stabilizing Layout for PDF --- */
@@ -103,6 +109,13 @@
                 margin-top: 0;
                 margin-bottom: 0.15rem;
             }
+            
+            /* --- FORCE JOB ENTRIES TO STAY TOGETHER --- */
+            .page-break-avoid {
+                /* Aggressively prevents a break within the System Administrator job block */
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
         }
     </style>
 </head>
@@ -157,7 +170,7 @@
             <h2 class="section-title text-xl uppercase">Work Experience</h2>
 
             <!-- Role 1: Associate System Administrator / Senior IT Analyst -->
-            <div class="mb-3">
+            <div class="mb-3 page-break-avoid">
                 <div class="flex justify-between items-start text-sm">
                     <div>
                         <h3 class="font-bold text-gray-800">Associate System Administrator / Senior IT Analyst</h3>
@@ -179,8 +192,8 @@
                 </ul>
             </div>
 
-            <!-- Role 2: System Administrator -->
-            <div class="mb-3">
+            <!-- Role 2: System Administrator - Added page-break-avoid -->
+            <div class="mb-3 page-break-avoid">
                 <div class="flex justify-between items-start text-sm">
                     <div>
                         <h3 class="font-bold text-gray-800">System Administrator</h3>
@@ -203,7 +216,7 @@
             </div>
 
             <!-- Role 3: Junior IT Executive -->
-            <div class="mb-3">
+            <div class="mb-3 page-break-avoid">
                 <div class="flex justify-between items-start text-sm">
                     <div>
                         <h3 class="font-bold text-gray-800">Junior IT Executive</h3>
@@ -225,7 +238,7 @@
         </section>
 
         <!-- EDUCATION -->
-        <section class="mb-4">
+        <section class="mb-4 page-break-avoid">
             <h2 class="section-title text-xl uppercase">Education</h2>
             <div class="flex justify-between items-start text-sm mb-2">
                 <div>
@@ -246,7 +259,7 @@
         </section>
 
         <!-- PERSONAL PROJECTS -->
-        <section class="mb-4">
+        <section class="mb-4 page-break-avoid">
             <h2 class="section-title text-xl uppercase">Personal Projects</h2>
             <ul class="list-none text-sm text-gray-700 pl-0">
                 <li class="mb-1">
@@ -264,30 +277,25 @@
             </ul>
         </section>
 
-        <!-- CERTIFICATIONS & PROFESSIONAL DEVELOPMENT -->
-        <section class="mb-4">
+        <!-- CERTIFICATIONS & PROFESSIONAL DEVELOPMENT - NOW SINGLE COLUMN, SINGLE LIST -->
+        <section class="mb-4 page-break-avoid">
             <h2 class="section-title text-xl uppercase">Certifications & Training</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-y-1 text-sm text-gray-700">
-                <div>
-                    <strong style="color: var(--primary-blue);">Certifications:</strong>
-                    <ul class="list-none pl-0 mt-1">
-                        <li>• <strong>AWS Certified Cloud Practitioner</strong> (CLF-C02)</li>
-                        <li>• <strong>Microsoft Certified: Azure Fundamentals</strong> (AZ-900)</li>
-                        <li>• Mimecast Cloud Gateway Fundamentals</li>
-                    </ul>
-                </div>
-                <div>
-                    <strong style="color: var(--primary-blue);">Training & Coursework Completed:</strong>
-                    <ul class="list-none pl-0 mt-1">
-                        <li>• Microsoft Certified: <strong>Azure Administrator Associate</strong> (AZ-104)</li>
-                        <li>• Microsoft Certified: <strong>Security Operations Analyst Associate</strong> (SC-200)</li>
-                    </ul>
-                </div>
+            <div class="text-sm text-gray-700">
+                <ul class="list-none pl-0 space-y-1">
+                    <li class="skill-group">
+                        <strong style="color: var(--primary-blue);">Certifications:</strong> 
+                        AWS Certified Cloud Practitioner (CLF-C02), Microsoft Certified: Azure Fundamentals (AZ-900), Mimecast Cloud Gateway Fundamentals
+                    </li>
+                    <li class="skill-group">
+                        <strong style="color: var(--primary-blue);">Training & Coursework Completed:</strong> 
+                        Microsoft Certified: Azure Administrator Associate (AZ-104), Microsoft Certified: Security Operations Analyst Associate (SC-200)
+                    </li>
+                </ul>
             </div>
         </section>
 
         <!-- INTERESTS - CONVERTED TO BULLETED LIST -->
-        <section>
+        <section class="page-break-avoid">
             <h2 class="section-title text-xl uppercase">Interests</h2>
             <ul class="list-disc text-sm text-gray-700 pl-4">
                 <li>Professional Development: Following tech blogs, podcasts on cloud computing, or open-source projects.</li>
