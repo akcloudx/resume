@@ -103,6 +103,14 @@
                 margin-top: 0;
                 margin-bottom: 0.15rem;
             }
+
+            /* --- FORCE JOB ENTRIES TO START ON NEW PAGE IF BROKEN --- */
+            /* Ensure the 'System Administrator' job block starts clean if it breaks across pages */
+            #system-admin-job {
+                page-break-before: auto !important;
+                page-break-inside: avoid !important;
+                break-inside: avoid !important;
+            }
         }
     </style>
 </head>
@@ -179,8 +187,8 @@
                 </ul>
             </div>
 
-            <!-- Role 2: System Administrator -->
-            <div class="mb-3">
+            <!-- Role 2: System Administrator - Added ID for print break control -->
+            <div class="mb-3" id="system-admin-job">
                 <div class="flex justify-between items-start text-sm">
                     <div>
                         <h3 class="font-bold text-gray-800">System Administrator</h3>
@@ -264,25 +272,18 @@
             </ul>
         </section>
 
-        <!-- CERTIFICATIONS & PROFESSIONAL DEVELOPMENT -->
+        <!-- CERTIFICATIONS & PROFESSIONAL DEVELOPMENT - NOW SINGLE COLUMN, SINGLE LINE -->
         <section class="mb-4">
             <h2 class="section-title text-xl uppercase">Certifications & Training</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-y-1 text-sm text-gray-700">
-                <div>
-                    <strong style="color: var(--primary-blue);">Certifications:</strong>
-                    <ul class="list-none pl-0 mt-1">
-                        <li>• <strong>AWS Certified Cloud Practitioner</strong> (CLF-C02)</li>
-                        <li>• <strong>Microsoft Certified: Azure Fundamentals</strong> (AZ-900)</li>
-                        <li>• Mimecast Cloud Gateway Fundamentals</li>
-                    </ul>
-                </div>
-                <div>
-                    <strong style="color: var(--primary-blue);">Training & Coursework Completed:</strong>
-                    <ul class="list-none pl-0 mt-1">
-                        <li>• Microsoft Certified: <strong>Azure Administrator Associate</strong> (AZ-104)</li>
-                        <li>• Microsoft Certified: <strong>Security Operations Analyst Associate</strong> (SC-200)</li>
-                    </ul>
-                </div>
+            <div class="text-sm text-gray-700">
+                <!-- Converted to individual bullet points for clarity and space saving -->
+                <ul class="list-disc pl-0 space-y-0.5">
+                    <li class="ml-4"><strong>AWS Certified Cloud Practitioner</strong> (CLF-C02)</li>
+                    <li class="ml-4"><strong>Microsoft Certified: Azure Fundamentals</strong> (AZ-900)</li>
+                    <li class="ml-4">Mimecast Cloud Gateway Fundamentals</li>
+                    <li class="ml-4">Microsoft Certified: <strong>Azure Administrator Associate</strong> (AZ-104) - Coursework Completed</li>
+                    <li class="ml-4">Microsoft Certified: <strong>Security Operations Analyst Associate</strong> (SC-200) - Coursework Completed</li>
+                </ul>
             </div>
         </section>
 
