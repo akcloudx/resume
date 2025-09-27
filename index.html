@@ -9,7 +9,8 @@
     <style>
         /* Define a custom font for professional look, defaulting to Inter */
         :root {
-            --primary-blue: #1e40af; /* Tailwind blue-700 */
+            --primary-blue: #1e40af; /* Screen/Display Color (Dark Blue) */
+            --print-blue: #4f72c2;   /* Print Color (Medium Blue for better contrast) */
         }
         body {
             font-family: 'Inter', sans-serif;
@@ -36,22 +37,81 @@
         .key-skills li {
             margin-bottom: 4px;
         }
+
+        /* --- PRINT OPTIMIZATION: Condensing and Stabilizing Layout for PDF --- */
+        @media print {
+            /* --- CONTRAST FIX: Use the lighter blue for printing --- */
+            .section-title, strong[style*="var(--primary-blue)"], .text-blue-500 {
+                color: var(--print-blue) !important;
+                border-bottom-color: var(--print-blue) !important;
+            }
+
+            body {
+                padding: 0;
+                margin: 0;
+                font-size: 10pt; 
+            }
+            .resume-container {
+                box-shadow: none;
+                max-width: 100%;
+                margin: 0;
+                padding: 0.3in; /* Aggressively reduced padding to save space */
+            }
+            .text-sm {
+                font-size: 0.82rem;
+            }
+            .text-xs {
+                font-size: 0.70rem;
+            }
+
+            /* --- ALIGNMENT FIX: Force Key Skills into 2 stable columns --- */
+            .skills-grid-print {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            .skills-grid-print > div {
+                width: 50% !important; /* Force equal column width */
+                padding-right: 15px;
+            }
+
+            /* --- AGGRESSIVE SPACING REDUCTION --- */
+            .mb-6, .mb-4 { margin-bottom: 0.30rem !important; }
+            .mb-3 { margin-bottom: 0.20rem !important; }
+            .mb-2 { margin-bottom: 0.12rem !important; }
+            .mb-1 { margin-bottom: 0.08rem !important; }
+            .section-title {
+                margin-bottom: 5px !important;
+            }
+            /* Tighter spacing for list items */
+            ul {
+                 margin-left: 15px !important;
+            }
+            li {
+                margin-bottom: 0 !important;
+                line-height: 1.15;
+            }
+            /* Reduce spacing between paragraphs/blocks */
+            p {
+                margin-top: 0;
+                margin-bottom: 0.15rem;
+            }
+        }
     </style>
 </head>
 <body class="antialiased">
 
     <div class="resume-container max-w-4xl mx-auto bg-white p-8 sm:p-10 rounded-lg">
 
-        <!-- HEADER SECTION - UPDATED WITH CLEANER, LABELED LINKS -->
-        <header class="text-center mb-6">
+        <!-- HEADER SECTION -->
+        <header class="text-center mb-4">
             <h1 class="text-4xl font-extrabold tracking-tight text-gray-800 uppercase mb-1" style="color: var(--primary-blue);">AAKIF SHAIKH</h1>
             <p class="text-sm text-gray-600">
-                +91 790000 • <a href="mailto:Aakif_Shaikh@outlook.com" class="text-gray-600 hover:text-blue-700">Aakif_Shaikh@outlook.com</a> • <a href="https://linkedin.com/in/aakif-shaikh-ascloudx" target="_blank" class="text-gray-600 hover:text-blue-700">LinkedIn Profile</a> • <a href="http://ascloudx.com" target="_blank" class="text-gray-600 hover:text-blue-700">Portfolio Website</a>
+                +91 7900007636 • <a href="mailto:Aakif_Shaikh@outlook.com" class="text-gray-600 hover:text-blue-700">Aakif_Shaikh@outlook.com</a> • <a href="https://linkedin.com/in/aakif-shaikh-ascloudx" target="_blank" class="text-gray-600 hover:text-blue-700">LinkedIn Profile</a> • <a href="http://ascloudx.com" target="_blank" class="text-gray-600 hover:text-blue-700">Portfolio Website</a>
             </p>
         </header>
 
         <!-- SUMMARY -->
-        <section class="mb-6">
+        <section class="mb-4">
             <h2 class="section-title text-xl uppercase">Summary</h2>
             <p class="text-sm text-gray-700 leading-relaxed">
                 <strong>Certified AWS Cloud Practitioner and Azure professional</strong> with 3+ years of experience in high-volume system administration and cloud infrastructure. Proven ability to manage and maintain over <strong>3,000 servers</strong> and diverse IT environments for a portfolio of over <strong>300 clients</strong>, including Australian government, education, and mining sectors. Skilled in <strong>Windows/Linux servers, virtualization</strong>, and cloud platforms like <strong>Azure, AWS and Office 365</strong>. Currently pursuing a Master of Science in Cloud Architecture and Security to advance skills in modern, scalable IT solutions
@@ -59,10 +119,11 @@
         </section>
 
         <!-- KEY SKILLS & TECHNICAL PROFICIENCIES -->
-        <section class="mb-6">
+        <section class="mb-4">
             <h2 class="section-title text-xl uppercase">Key Skills & Technical Proficiencies</h2>
             <div class="text-sm text-gray-700">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
+                <!-- Added skills-grid-print class for print stabilization -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 skills-grid-print">
                     <div>
                         <p><strong style="color: var(--primary-blue);">Cloud Platforms & SaaS:</strong> Azure (IaaS, PaaS), AWS (EC2, S3), Microsoft 365, Entra ID, Intune</p>
                     </div>
@@ -86,11 +147,11 @@
         </section>
 
         <!-- WORK EXPERIENCE -->
-        <section class="mb-6">
+        <section class="mb-4">
             <h2 class="section-title text-xl uppercase">Work Experience</h2>
 
             <!-- Role 1: Associate System Administrator / Senior IT Analyst -->
-            <div class="mb-4">
+            <div class="mb-3">
                 <div class="flex justify-between items-start text-sm">
                     <div>
                         <h3 class="font-bold text-gray-800">Associate System Administrator / Senior IT Analyst</h3>
@@ -113,7 +174,7 @@
             </div>
 
             <!-- Role 2: System Administrator -->
-            <div class="mb-4">
+            <div class="mb-3">
                 <div class="flex justify-between items-start text-sm">
                     <div>
                         <h3 class="font-bold text-gray-800">System Administrator</h3>
@@ -136,7 +197,7 @@
             </div>
 
             <!-- Role 3: Junior IT Executive -->
-            <div class="mb-4">
+            <div class="mb-3">
                 <div class="flex justify-between items-start text-sm">
                     <div>
                         <h3 class="font-bold text-gray-800">Junior IT Executive</h3>
@@ -158,7 +219,7 @@
         </section>
 
         <!-- EDUCATION -->
-        <section class="mb-6">
+        <section class="mb-4">
             <h2 class="section-title text-xl uppercase">Education</h2>
             <div class="flex justify-between items-start text-sm mb-2">
                 <div>
@@ -179,30 +240,27 @@
         </section>
 
         <!-- PERSONAL PROJECTS -->
-        <section class="mb-6">
+        <section class="mb-4">
             <h2 class="section-title text-xl uppercase">Personal Projects</h2>
             <ul class="list-none text-sm text-gray-700 pl-0">
-                <li class="mb-2">
+                <li class="mb-1">
                     <strong style="color: var(--primary-blue);">Voting App Deployment on Azure Kubernetes Service (AKS)</strong> | <a href="https://github.com/akcloudx/example-voting-app" target="_blank" class="text-blue-500 hover:text-blue-700">GitHub Link</a>
                     <p class="text-xs text-gray-600">Designed and deployed a containerized voting application to a <strong>Kubernetes</strong> cluster on <strong>Azure (AKS)</strong> using <strong>Azure DevOps</strong> for <strong>CI/CD</strong> and <strong>Argo CD</strong> for <strong>GitOps</strong>-based deployments. (Technologies: <strong>Azure DevOps, AKS, Argo CD, Kubernetes, GitOps</strong>)</p>
                 </li>
-                <li class="mb-2">
+                <li class="mb-1">
                     <strong style="color: var(--primary-blue);">Dockerized Static Website with CI/CD</strong> | <a href="https://github.com/akcloudx/docker-static-website" target="_blank" class="text-blue-500 hover:text-blue-700">GitHub Link</a>
                     <p class="text-xs text-gray-600">Built a streamlined <strong>CI/CD pipeline</strong> using <strong>GitHub Actions</strong> to automatically build and push a <strong>Docker image</strong> of a static website to a container registry upon code commit. (Technologies: <strong>Docker, GitHub Actions, CI/CD, Containerization</strong>)</p>
                 </li>
-                <li class="mb-2">
+                <li class="mb-1">
                     <strong style="color: var(--primary-blue);">Serverless EKS Deployment</strong> | <a href="https://github.com/akcloudx/cloud-native-eks-deployment" target="_blank" class="text-blue-500 hover:text-blue-700">GitHub Link</a>
                     <p class="text-xs text-gray-600">Deployed a containerized 2048 game onto a <strong>Serverless EKS cluster</strong> on <strong>AWS</strong>, showcasing proficiency in container orchestration and cost-effective, <strong>serverless architecture</strong>. (Technologies: <strong>AWS (EKS), Kubernetes, Serverless</strong>)</p>
                 </li>
-                <li class="mb-2">
-                    <strong style="color: var(--primary-blue);">Azure Hybrid Identity Setup</strong>
-                    <p class="text-xs text-gray-600">Configured a <strong>hybrid environment</strong> by setting up <strong>Azure AD Connect and Cloud Sync</strong>, enabling seamless synchronization of on-premises <strong>Active Directory</strong> identities with <strong>Microsoft Entra ID (Azure AD)</strong>. (Technologies: <strong>Azure AD Connect, Microsoft Entra ID, Hybrid Cloud, Identity Management</strong>)</p>
-                </li>
+                <!-- Removed 'Azure Hybrid Identity Setup' project here -->
             </ul>
         </section>
 
         <!-- CERTIFICATIONS & PROFESSIONAL DEVELOPMENT -->
-        <section class="mb-6">
+        <section class="mb-4">
             <h2 class="section-title text-xl uppercase">Certifications & Training</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-y-1 text-sm text-gray-700">
                 <div>
@@ -223,7 +281,7 @@
             </div>
         </section>
 
-        <!-- INTERESTS (Optional but included for character fit) -->
+        <!-- INTERESTS -->
         <section>
             <h2 class="section-title text-xl uppercase">Interests</h2>
             <p class="text-sm text-gray-700">
