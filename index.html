@@ -106,10 +106,11 @@
 
             /* --- TARGETED PAGE BREAK AVOIDANCE FOR JOB LISTS AND PROJECT TITLES --- */
             /* This ensures the list and the following project title stay together */
-            .job-ul {
-                page-break-after: avoid !important;
-                page-break-inside: avoid !important; /* NEW FIX: Prevents list from splitting */
+            /* .job-ul is kept for formatting, but .no-break-content will now handle avoidance */
+            .no-break-content {
+                page-break-inside: avoid !important; /* Forces the entire block of content to stay together */
             }
+            
             /* Apply break to the paragraph containing the key project title */
             .key-project-title {
                 page-break-before: avoid !important;
@@ -185,17 +186,19 @@
                     <p class="font-medium text-gray-700 text-right whitespace-nowrap">Sept 2023 – Present</p>
                 </div>
                 <p class="text-xs italic text-gray-500 mb-2">Promoted to Associate System Administrator in one year for consistent high performance and technical leadership.</p>
-                <ul class="list-disc text-sm text-gray-700 pl-4 job-ul">
-                    <li>Managed and provided end-to-end support for a <strong>multi-tenant environment</strong> of <strong>300+ Australian clients</strong>, overseeing a diverse fleet of <strong>over 3,000 Windows/Linux servers</strong>.</li>
-                    <li>Led <strong>vulnerability remediation</strong> efforts by analyzing SOC reports and patching critical issues, <strong>reducing security risks by 75%</strong> across client infrastructure.</li>
-                    <li>Successfully resolved a high volume of escalated tickets, including <strong>600+ incidents (P1-P4)</strong>, 700+ complex requests, and over 200 change requests annually.</li>
-                    <li>Significantly improved workflow efficiency by creating and documenting SOPs in Atlassian Confluence, which <strong>reduced the volume of escalated tickets</strong> from the Service Desk team.</li>
-                    <li>Administered and optimized virtual infrastructure on <strong>VMware, Hyper-V, and Azure</strong>, improving resource utilization and contributing to a <strong>15% reduction in operational overhead</strong>.</li>
-                    <li>Generated over <strong>200 hours of chargeable ex-work effort</strong> in Australian Dollars by delivering specialized projects, providing additional revenue outside the managed services contract.</li>
-                    <li>Maintained high system availability by resolving critical alerts from <strong>SCOM, LogicMonitor</strong>, and backup systems, improving client uptime by <strong>99.9%</strong>.</li>
-                    <li>Led the administration of <strong>Microsoft 365, Entra ID, and Intune</strong>, ensuring robust identity governance, hybrid setup integrity, and streamlined device management.</li>
-                    <li>Achieved an outstanding client satisfaction record, receiving <strong>100+ positive client survey responses</strong> and direct appreciative feedback to the CEO.</li>
-                </ul>
+                <div class="no-break-content">
+                    <ul class="list-disc text-sm text-gray-700 pl-4 job-ul">
+                        <li>Managed and provided end-to-end support for a <strong>multi-tenant environment</strong> of <strong>300+ Australian clients</strong>, overseeing a diverse fleet of <strong>over 3,000 Windows/Linux servers</strong>.</li>
+                        <li>Led <strong>vulnerability remediation</strong> efforts by analyzing SOC reports and patching critical issues, <strong>reducing security risks by 75%</strong> across client infrastructure.</li>
+                        <li>Successfully resolved a high volume of escalated tickets, including <strong>600+ incidents (P1-P4)</strong>, 700+ complex requests, and over 200 change requests annually.</li>
+                        <li>Significantly improved workflow efficiency by creating and documenting SOPs in Atlassian Confluence, which <strong>reduced the volume of escalated tickets</strong> from the Service Desk team.</li>
+                        <li>Administered and optimized virtual infrastructure on <strong>VMware, Hyper-V, and Azure</strong>, improving resource utilization and contributing to a <strong>15% reduction in operational overhead</strong>.</li>
+                        <li>Generated over <strong>200 hours of chargeable ex-work effort</strong> in Australian Dollars by delivering specialized projects, providing additional revenue outside the managed services contract.</li>
+                        <li>Maintained high system availability by resolving critical alerts from <strong>SCOM, LogicMonitor</strong>, and backup systems, improving client uptime by <strong>99.9%</strong>.</li>
+                        <li>Led the administration of <strong>Microsoft 365, Entra ID, and Intune</strong>, ensuring robust identity governance, hybrid setup integrity, and streamlined device management.</li>
+                        <li>Achieved an outstanding client satisfaction record, receiving <strong>100+ positive client survey responses</strong> and direct appreciative feedback to the CEO.</li>
+                    </ul>
+                </div>
             </div>
 
             
@@ -208,14 +211,16 @@
                     </div>
                     <p class="font-medium text-gray-700 text-right whitespace-nowrap">July 2022 – Aug 2023</p>
                 </div>
-                <ul class="list-disc text-sm text-gray-700 pl-4 job-ul">
-                    <li>Architected, configured, and managed a server infrastructure of over <strong>50 servers</strong> to support a FinTech software development company serving major banks.</li>
-                    <li>Provided comprehensive IT support for over <strong>200+ users</strong>, including troubleshooting for Windows and Linux/Ubuntu environments.</li>
-                    <li>Administered and maintained a full suite of backup and disaster recovery solutions, ensuring business continuity and data integrity.</li>
-                    <li>Strengthened IT security posture by overseeing user access controls and <strong>Group Policies (GPOs)</strong>, ensuring compliant operations.</li>
-                    <!-- MOVED LINE UP -->
-                    <li>Utilized <strong>SQL Database Administration, Bitbucket</strong> for code management, and <strong>Zabbix</strong> for infrastructure monitoring to support development and IT operations.</li>
-                </ul>
+                <div class="no-break-content">
+                    <ul class="list-disc text-sm text-gray-700 pl-4 job-ul">
+                        <li>Architected, configured, and managed a server infrastructure of over <strong>50 servers</strong> to support a FinTech software development company serving major banks.</li>
+                        <li>Provided comprehensive IT support for over <strong>200+ users</strong>, including troubleshooting for Windows and Linux/Ubuntu environments.</li>
+                        <li>Administered and maintained a full suite of backup and disaster recovery solutions, ensuring business continuity and data integrity.</li>
+                        <li>Strengthened IT security posture by overseeing user access controls and <strong>Group Policies (GPOs)</strong>, ensuring compliant operations.</li>
+                        <!-- MOVED LINE UP -->
+                        <li>Utilized <strong>SQL Database Administration, Bitbucket</strong> for code management, and <strong>Zabbix</strong> for infrastructure monitoring to support development and IT operations.</li>
+                    </ul>
+                </div>
                 <p class="text-sm font-semibold mt-2 key-project-title" style="color: var(--primary-blue);">Key Project: Server Infrastructure Setup – Bank of India/Union Bank/National Housing Bank</p>
                 <ul class="list-disc text-sm text-gray-700 pl-4">
                     <li>Architected and provisioned virtual machines on <strong>Hyper-V</strong>, configuring <strong>Windows Server 2019, SQL, Oracle, SSRS/SSIS, and IIS</strong> for UAT and production environments.</li>
@@ -233,11 +238,13 @@
                     </div>
                     <p class="font-medium text-gray-700 text-right whitespace-nowrap">Jan 2020 – Feb 2022</p>
                 </div>
-                <ul class="list-disc text-sm text-gray-700 pl-4 job-ul">
-                    <li>Delivered comprehensive on-site and remote technical support to a portfolio of clients under <strong>Annual Maintenance Contracts (AMCs)</strong>, minimizing user downtime.</li>
-                    <li>Provided <strong>Tier 1 and Tier 2 support</strong> for a wide range of technical issues, including diagnostics and resolution for Microsoft Office, Outlook, and network devices.</li>
-                    <li>Managed the full lifecycle of IT assets, including installation, configuration, and maintenance of desktops, laptops, printers, and core business software.</li>
-                </ul>
+                <div class="no-break-content">
+                    <ul class="list-disc text-sm text-gray-700 pl-4 job-ul">
+                        <li>Delivered comprehensive on-site and remote technical support to a portfolio of clients under <strong>Annual Maintenance Contracts (AMCs)</strong>, minimizing user downtime.</li>
+                        <li>Provided <strong>Tier 1 and Tier 2 support</strong> for a wide range of technical issues, including diagnostics and resolution for Microsoft Office, Outlook, and network devices.</li>
+                        <li>Managed the full lifecycle of IT assets, including installation, configuration, and maintenance of desktops, laptops, printers, and core business software.</li>
+                    </ul>
+                </div>
                 <p class="text-sm font-semibold mt-2 key-project-title" style="color: var(--primary-blue);">Key Project: Cloud Migration – Billabong High International School</p>
                 <ul class="list-disc text-sm text-gray-700 pl-4">
                     <li>Contributed to the successful migration of mailboxes and OneDrive data from <strong>Microsoft 365 to Google Cloud</strong> under the guidance of senior engineers.</li>
@@ -295,8 +302,8 @@
                     <li class="ml-4"><strong>AWS Certified Cloud Practitioner</strong> (CLF-C02) W4RZBV1KX2411XWN</li>
                     <li class="ml-4"><strong>Microsoft Certified: Azure Fundamentals</strong> (AZ-900) 7E72B9-3ECF46</li>
                     <li class="ml-4"><strong>Mimecast Cloud Gateway Fundamentals</strong> C38615</li>
-                    <li class="ml-4">Microsoft Certified: <strong>Azure Administrator Associate</strong> (AZ-104) - Coursework Completed</li>
-                    <li class="ml-4">Microsoft Certified: <strong>Security Operations Analyst Associate</strong> (SC-200) - Coursework Completed</li>
+                    <li class="ml-4">Azure Administrator Associate</strong> (AZ-104) - Coursework Completed</li>
+                    <li class="ml-4">Security Operations Analyst Associate</strong> (SC-200) - Coursework Completed</li>
                 </ul>
             </div>
         </section>
