@@ -34,8 +34,9 @@
             list-style-type: disc;
             margin-left: 20px;
         }
-        .key-skills li {
-            margin-bottom: 4px;
+        /* Target the paragraph items inside the Key Skills section */
+        .key-skill-item p {
+            margin-bottom: 0.1rem; /* Reduced margin for screen view */
         }
 
         /* --- PRINT OPTIMIZATION: Condensing and Stabilizing Layout for PDF --- */
@@ -72,6 +73,11 @@
             .skills-grid-print > div {
                 width: 50% !important; /* Force equal column width */
                 padding-right: 15px;
+            }
+            /* --- SKILLS SPACING FIX FOR PRINT --- */
+            .key-skill-item p {
+                margin-bottom: 0 !important;
+                line-height: 1.25 !important;
             }
 
             /* --- AGGRESSIVE SPACING REDUCTION --- */
@@ -118,28 +124,28 @@
             </p>
         </section>
 
-        <!-- KEY SKILLS & TECHNICAL PROFICIENCIES -->
+        <!-- KEY SKILLS & TECHNICAL PROFICIENCIES - ADDED key-skill-item CLASS -->
         <section class="mb-4">
             <h2 class="section-title text-xl uppercase">Key Skills & Technical Proficiencies</h2>
             <div class="text-sm text-gray-700">
                 <!-- Added skills-grid-print class for print stabilization -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 skills-grid-print">
-                    <div>
+                    <div class="key-skill-item">
                         <p><strong style="color: var(--primary-blue);">Cloud Platforms & SaaS:</strong> Azure (IaaS, PaaS), AWS (EC2, S3), Microsoft 365, Entra ID, Intune</p>
                     </div>
-                    <div>
+                    <div class="key-skill-item">
                         <p><strong style="color: var(--primary-blue);">DevOps & Automation:</strong> Git, Docker, Terraform, Ansible, Jenkins, Bash, PowerShell</p>
                     </div>
-                    <div>
+                    <div class="key-skill-item">
                         <p><strong style="color: var(--primary-blue);">System Administration:</strong> Windows Server (2012-2025), Linux, AD, DNS, DHCP, GPO, SAN, NAS</p>
                     </div>
-                    <div>
+                    <div class="key-skill-item">
                         <p><strong style="color: var(--primary-blue);">Virtualization:</strong> VMware, Hyper-V, Proxmox</p>
                     </div>
-                    <div>
+                    <div class="key-skill-item">
                         <p><strong style="color: var(--primary-blue);">Networking:</strong> External DNS, VPN, Router, Switches, Firewall, LAN/WAN</p>
                     </div>
-                    <div>
+                    <div class="key-skill-item">
                         <p><strong style="color: var(--primary-blue);">Monitoring & Security:</strong> Prometheus, Grafana, Zabbix, LogicMonitor, Mimecast, CrowdStrike, SentinelOne, Airlock, Vulnerability Remediation, Penetration Testing (Nessus)</p>
                     </div>
                 </div>
@@ -255,7 +261,6 @@
                     <strong style="color: var(--primary-blue);">Serverless EKS Deployment</strong> | <a href="https://github.com/akcloudx/cloud-native-eks-deployment" target="_blank" class="text-blue-500 hover:text-blue-700">GitHub Link</a>
                     <p class="text-xs text-gray-600">Deployed a containerized 2048 game onto a <strong>Serverless EKS cluster</strong> on <strong>AWS</strong>, showcasing proficiency in container orchestration and cost-effective, <strong>serverless architecture</strong>. (Technologies: <strong>AWS (EKS), Kubernetes, Serverless</strong>)</p>
                 </li>
-                <!-- Removed 'Azure Hybrid Identity Setup' project here -->
             </ul>
         </section>
 
@@ -281,12 +286,14 @@
             </div>
         </section>
 
-        <!-- INTERESTS -->
+        <!-- INTERESTS - CONVERTED TO BULLETED LIST -->
         <section>
             <h2 class="section-title text-xl uppercase">Interests</h2>
-            <p class="text-sm text-gray-700">
-                Professional Development (Tech blogs, cloud computing podcasts, open-source projects), Problem-Solving (Chess, puzzles), Creative/Technical Hobbies (Building custom PCs, home automation).
-            </p>
+            <ul class="list-disc text-sm text-gray-700 pl-4">
+                <li>Professional Development: Following tech blogs, podcasts on cloud computing, or open-source projects.</li>
+                <li>Problem-Solving: Hobbies that involve strategy or troubleshooting, like chess or puzzles.</li>
+                <li>Creative/Technical Hobbies: Building custom PCs, home automation projects, or photography.</li>
+            </ul>
         </section>
 
     </div>
